@@ -24,7 +24,17 @@ public class PrimeCalculatorTest {
     }
 
     @Test
-    public void testBigPrime() {
+    public void testBigPrime1() {
+        assertThat(primeCalculator.nth(101)).isEqualTo(547);
+    }
+
+    @Test
+    public void testBigPrime2() {
+        assertThat(primeCalculator.nth(1001)).isEqualTo(7927);
+    }
+
+    @Test
+    public void testBigPrime3() {
         assertThat(primeCalculator.nth(10001)).isEqualTo(104743);
     }
 

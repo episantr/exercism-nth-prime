@@ -3,21 +3,29 @@ import java.util.List;
 
 public class PrimeCalculator {
 
+    List<Integer> primeNumbers = new ArrayList<>(List.of(2, 3, 5, 7, 11, 13));
+
     int nth(int nth) {
 
         if (nth <= 0) {
             throw new IllegalArgumentException();
         }
 
-        List<Integer> primeNumbers = new ArrayList<>();
-        primeNumbers.add(2);
-        primeNumbers.add(3);
-        primeNumbers.add(5);
+        if (primeNumbers.size() >= nth) {
+            return primeNumbers.get(nth - 1);
+        } else {
+            keepAddingToTheList(nth);
+        }
 
+
+        return primeNumbers.get(nth - 1);
+    }
+
+    private void keepAddingToTheList(int nth) {
         boolean isPrime;
-        for (int i = 7; i < Integer.MAX_VALUE; i++) {
+        for (int i = primeNumbers.get(primeNumbers.size() - 1) + 1; i < Integer.MAX_VALUE; i++) {
             isPrime = true;
-            for (int j = 2; j < i / 2; j++) {
+            for (int j = 2; j <= i / 2; j++) {
                 if (i % j == 0) {
                     isPrime = false;
                     break;
@@ -30,7 +38,5 @@ public class PrimeCalculator {
                 break;
             }
         }
-
-        return primeNumbers.get(nth - 1);
     }
 }
