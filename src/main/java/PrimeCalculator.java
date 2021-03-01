@@ -6,7 +6,6 @@ public class PrimeCalculator {
     List<Integer> primeNumbers = new ArrayList<>(List.of(2, 3, 5, 7, 11, 13));
 
     int nth(int nth) {
-
         if (nth <= 0) {
             throw new IllegalArgumentException();
         }
@@ -16,7 +15,6 @@ public class PrimeCalculator {
         } else {
             keepAddingToTheList(nth);
         }
-
 
         return primeNumbers.get(nth - 1);
     }
